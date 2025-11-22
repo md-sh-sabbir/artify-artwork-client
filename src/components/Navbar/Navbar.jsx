@@ -10,11 +10,11 @@ const Navbar = () => {
 
     const defaultLinkClass = 'font-semibold text-[#2F4464] text-white'
 
-    const activeLinkClass = 'font-bold text-[#2F4464]  gradient-underline';
+    const activeLinkClass = 'font-bold text-base bg-[#2F4464] gradient-underline';
 
     const links = <>
         <li><NavLink to="/" className={({ isActive }) => `${defaultLinkClass} ${isActive ? activeLinkClass : ''}`}>Home</NavLink></li>
-        <li><NavLink to="/games" className={({ isActive }) => `${defaultLinkClass} ${isActive ? activeLinkClass : ''}`}>Explore Artworks</NavLink></li>
+        <li><NavLink to="/allArtworks" className={({ isActive }) => `${defaultLinkClass} ${isActive ? activeLinkClass : ''}`}>Explore Artworks</NavLink></li>
         <li><NavLink to="/contact" className={({ isActive }) => `${defaultLinkClass} ${isActive ? activeLinkClass : ''}`}>Contact</NavLink></li>
     </>
 
@@ -68,7 +68,7 @@ const Navbar = () => {
                                                 alt="User Profile"
                                             />
                                         </Link>
-                                        <button onClick={handleLogOut} className="btn bg-black text-white px-6 lg:px-10">Log Out</button>
+                                        <button onClick={handleLogOut} className="btn bg-[#2F4464] text-white px-6 lg:px-10">Log Out</button>
                                     </div>
                                 ) : (
                                     <div className='flex justify-center items-center gap-2 lg:gap-3 ml-3'>
