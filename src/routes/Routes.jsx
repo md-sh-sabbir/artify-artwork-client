@@ -4,6 +4,8 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import HomeLayout from "../layouts/HomeLayout";
 import AllArtworks from "../pages/AllArtworks";
+import ArtworkDetails from "../pages/ArtworkDetails";
+import UpdateArtwork from "../pages/UpdateArtwork";
 
 export const router = createBrowserRouter([
     {
@@ -23,8 +25,17 @@ export const router = createBrowserRouter([
                 Component: Register
             },
             {
-                path: 'allArtworks',
-                Component: AllArtworks
+                path: 'all-artworks',
+                Component: AllArtworks,
+                loader: () => fetch('http://localhost:3000/artworks')
+            },
+            {
+                path: 'artwork-details/:id',
+                Component: ArtworkDetails
+            },
+            {
+                path: 'update-artwork/:id',
+                element: <UpdateArtwork></UpdateArtwork>
             }
         ]
     }

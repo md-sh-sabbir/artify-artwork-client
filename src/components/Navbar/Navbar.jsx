@@ -8,13 +8,13 @@ const Navbar = () => {
 
     const { user, signOutUser } = use(AuthContext)
 
-    const defaultLinkClass = 'font-semibold text-[#2F4464] text-white'
+    const defaultLinkClass = 'font-semibold text-base text-[#2F4464] text-[#2F4464]'
 
-    const activeLinkClass = 'font-bold text-base bg-[#2F4464] gradient-underline';
+    const activeLinkClass = 'font-bold text-base text-white bg-[#2F4464] gradient-underline';
 
     const links = <>
         <li><NavLink to="/" className={({ isActive }) => `${defaultLinkClass} ${isActive ? activeLinkClass : ''}`}>Home</NavLink></li>
-        <li><NavLink to="/allArtworks" className={({ isActive }) => `${defaultLinkClass} ${isActive ? activeLinkClass : ''}`}>Explore Artworks</NavLink></li>
+        <li><NavLink to="/all-artworks" className={({ isActive }) => `${defaultLinkClass} ${isActive ? activeLinkClass : ''}`}>Explore Artworks</NavLink></li>
         <li><NavLink to="/contact" className={({ isActive }) => `${defaultLinkClass} ${isActive ? activeLinkClass : ''}`}>Contact</NavLink></li>
     </>
 
