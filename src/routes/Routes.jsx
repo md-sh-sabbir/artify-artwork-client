@@ -6,6 +6,7 @@ import HomeLayout from "../layouts/HomeLayout";
 import AllArtworks from "../pages/AllArtworks";
 import ArtworkDetails from "../pages/ArtworkDetails";
 import UpdateArtwork from "../pages/UpdateArtwork";
+import AddArtwork from "../pages/AddArtwork";
 
 export const router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
             {
                 path: 'update-artwork/:id',
                 element: <UpdateArtwork></UpdateArtwork>
+            },
+            {
+                path: 'add-artwork',
+                element: <AddArtwork></AddArtwork>
             }
         ]
     }

@@ -8,14 +8,14 @@ const Navbar = () => {
 
     const { user, signOutUser } = use(AuthContext)
 
-    const defaultLinkClass = 'font-semibold text-base text-[#2F4464] text-[#2F4464]'
+    const defaultLinkClass = 'font-semibold text-base text-[#2F4464] text-[#2F4464] rounded-full'
 
-    const activeLinkClass = 'font-bold text-base text-white bg-[#2F4464] gradient-underline';
+    const activeLinkClass = 'font-bold text-base text-white bg-blue-400 gradient-underline';
 
     const links = <>
         <li><NavLink to="/" className={({ isActive }) => `${defaultLinkClass} ${isActive ? activeLinkClass : ''}`}>Home</NavLink></li>
         <li><NavLink to="/all-artworks" className={({ isActive }) => `${defaultLinkClass} ${isActive ? activeLinkClass : ''}`}>Explore Artworks</NavLink></li>
-        <li><NavLink to="/contact" className={({ isActive }) => `${defaultLinkClass} ${isActive ? activeLinkClass : ''}`}>Contact</NavLink></li>
+        <li><NavLink to="/add-artwork" className={({ isActive }) => `${defaultLinkClass} ${isActive ? activeLinkClass : ''}`}>Add Artwork</NavLink></li>
     </>
 
     const handleLogOut = () => {
@@ -61,13 +61,11 @@ const Navbar = () => {
                             {
                                 user ? (
                                     <div className="login-btn flex gap-3 lg:gap-5 items-center">
-                                        <Link to='/user-profile' className="cursor-pointer">
                                             <img
                                                 className='w-8 h-8 lg:w-10 lg:h-10 rounded-full object-cover ring-2 ring-[#2F4464] ring-offset-2'
-                                                src={user?.photoURL || 'https://via.placeholder.com/40'}
+                                                src={user.photoURL}
                                                 alt="User Profile"
                                             />
-                                        </Link>
                                         <button onClick={handleLogOut} className="btn bg-[#2F4464] text-white px-6 lg:px-10">Log Out</button>
                                     </div>
                                 ) : (
