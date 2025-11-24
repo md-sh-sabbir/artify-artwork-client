@@ -28,7 +28,16 @@ const AllArtworks = () => {
 
     const handleCategoryChange = (e) => {
         const newCategory = e.target.value 
-        setCategory
+        setCategory(newCategory)
+
+        setLoading(true)
+
+        axios.get(`http://localhost:3000/filter?category=${newCategory}`)
+            .then(data => {
+                console.log(data.data);
+                setArtworks(data.data)
+                setLoading(false)
+            })
     }
 
     if (loading) {
@@ -57,7 +66,7 @@ const AllArtworks = () => {
                     <div className='flex gap-2 items-center'>
                         <label className="input rounded-full ">
                             <svg
-                                className="h-[1em] opacity-50"
+                                className="h-[2em] opacity-50"
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
                             >
