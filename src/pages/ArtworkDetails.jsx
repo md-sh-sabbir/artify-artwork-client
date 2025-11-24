@@ -61,7 +61,7 @@ const ArtworkDetails = () => {
             visibility: artwork.visibility
         }
 
-        axios.post(`http://localhost:3000/favorites/${artwork._id}`, favArtwork)
+        axios.post(`http://localhost:3000/favorites`, favArtwork)
             .then(data => {
                 console.log(data.data);
                 toast.success('Successfully added to the favorites')

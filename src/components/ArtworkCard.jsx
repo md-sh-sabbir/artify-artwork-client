@@ -3,6 +3,9 @@ import { FaRegThumbsUp } from "react-icons/fa6";
 import { Link } from 'react-router';
 
 const ArtworkCard = ({ artwork }) => {
+
+    
+
     return (
         <div>
             <div className="card bg-base-100 h-[550px] shadow-sm transition hover:scale-105 duration-400">

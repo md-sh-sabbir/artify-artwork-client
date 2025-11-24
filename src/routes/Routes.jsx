@@ -9,11 +9,14 @@ import UpdateArtwork from "../pages/UpdateArtwork";
 import AddArtwork from "../pages/AddArtwork";
 import PrivateRoute from "./PrivateRoute";
 import MyGallery from "../pages/MyGallery";
+import MyFavorites from "../pages/MyFavorites";
+import ErrorPage from "../pages/ErrorPage";
 
 export const router = createBrowserRouter([
     {
         path: '/',
         Component : MainLayout,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 index: true,
@@ -55,7 +58,14 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <MyGallery></MyGallery>
                 </PrivateRoute>
+            },
+            {
+                path: 'favorites',
+                element: <PrivateRoute>
+                    <MyFavorites></MyFavorites>
+                </PrivateRoute>
             }
+
         ]
     }
 ])
