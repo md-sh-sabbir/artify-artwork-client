@@ -72,7 +72,7 @@ const ArtworkDetails = () => {
     }
 
     if (loading) {
-        <span className="loading loading-spinner loading-xl"></span>
+        <div className='text-center mt-5'><span className="loading loading-spinner loading-xl"></span></div>
     }
 
     return (

@@ -7,6 +7,8 @@ import AllArtworks from "../pages/AllArtworks";
 import ArtworkDetails from "../pages/ArtworkDetails";
 import UpdateArtwork from "../pages/UpdateArtwork";
 import AddArtwork from "../pages/AddArtwork";
+import PrivateRoute from "./PrivateRoute";
+import MyGallery from "../pages/MyGallery";
 
 export const router = createBrowserRouter([
     {
@@ -32,15 +34,27 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'artwork-details/:id',
-                Component: ArtworkDetails
+                element: <PrivateRoute>
+                    <ArtworkDetails></ArtworkDetails>
+                </PrivateRoute>
             },
             {
                 path: 'update-artwork/:id',
-                element: <UpdateArtwork></UpdateArtwork>
+                element: <PrivateRoute>
+                    <UpdateArtwork></UpdateArtwork>
+                </PrivateRoute>
             },
             {
                 path: 'add-artwork',
-                element: <AddArtwork></AddArtwork>
+                element: <PrivateRoute>
+                    <AddArtwork></AddArtwork>
+                </PrivateRoute>
+            },
+            {
+                path: 'my-gallery',
+                element: <PrivateRoute>
+                    <MyGallery></MyGallery>
+                </PrivateRoute>
             }
         ]
     }
