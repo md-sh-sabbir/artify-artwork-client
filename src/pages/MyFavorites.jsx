@@ -22,7 +22,7 @@ const MyFavorites = () => {
     }, [user])
 
     if (loading) {
-        <div className='text-center mt-5'><span className="loading loading-spinner loading-xl"></span></div>
+        return <div className='text-center mt-5'><span className="loading loading-spinner loading-xl"></span></div>
     }
 
     const handleDelete = (artworkId) => {

@@ -6,14 +6,20 @@ import Container from './Container';
 const LatestArtworks = () => {
 
     const [artworks, setArtworks] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         axios.get('https://artify-artwork-server.vercel.app/latest-artworks')
             .then(data => {
                 // console.log(data.data);
                 setArtworks(data.data)
+                setLoading(false)
             })
     }, [])
+
+    if (loading) {
+        return <div className='text-center mt-5'><span className="loading loading-spinner loading-xl"></span></div>
+    }
 
     return (
         <div className='my-16'>
