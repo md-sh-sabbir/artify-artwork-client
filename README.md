@@ -1,16 +1,35 @@
-# React + Vite
+# Artify Artwork
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live site: https://artify-artwork.web.app/
 
-Currently, two official plugins are available:
+## 🎨 What is Artify Artwork?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Artify Artwork is a client-side web application that showcases (or enables) artwork — a digital portfolio/gallery where users can browse, enjoy, and maybe upload creative artworks (or view art pieces).  
+It aims to present art in a clean, visually appealing way so that artists and visitors can explore art comfortably.
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Responsive design — adapts nicely for desktop and mobile users.  
+- Clean gallery interface with easy navigation.  
+- Smooth user experience with minimal load time (client-side).  
+- Attractive layout and styling to highlight artworks.  
+- Easily deployable — no backend required if only browsing is needed.  
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- HTML, CSS, JavaScript, React, MongoDB, Express (Node js) (or relevant front-end framework you used)  
+- Client-side hosted (hosted on Firebase / static hosting / as configured)  
+- Optionally, images/assets stored as static files   
+
+## 👥 Who Is This For
+
+Artify Artwork is suited for:  
+- Artists who want a simple portfolio to display their artwork.  
+- Visitors and art lovers browsing digital art collections.  
+- Developers who want a lightweight, easy-to-host art gallery website.  
+
+## 📄 Project Status & Notes
+
+- This is a client-side only project.  
+- You can customize styling, add more features (upload, filtering, themes) in future versions.  
+- Contributions are welcome (if you open source it) — feel free to submit improvements, bug fixes or feature requests.  
