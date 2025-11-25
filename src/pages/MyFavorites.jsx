@@ -61,7 +61,7 @@ const MyFavorites = () => {
     return (
         <div className='my-16'>
             <Container>
-                <h2 className='font-[Montserrat] text-5xl font-bold text-center'>My Favorites</h2>
+                <h2 className="text-4xl font-[Montserrat] md:text-5xl font-bold text-[#2F4464] mb-4 text-center">My Favorites</h2>
                 <p className='font-[Jost] text-lg mt-5 text-center'>You can find our latest artworks here. Explore our arts for better visuality of artworks</p>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-10'>
                     {

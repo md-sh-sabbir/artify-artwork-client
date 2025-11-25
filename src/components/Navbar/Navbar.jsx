@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import Container from '../Container';
 import logo from '../../assets/logo.png'
@@ -8,7 +8,20 @@ const Navbar = () => {
 
     const { user, signOutUser } = use(AuthContext)
 
-    const defaultLinkClass = 'font-semibold text-base text-[#2F4464] text-[#2F4464] rounded-full'
+    const [theme, setTheme] = useState(localStorage.getItem('theme') || "light")
+
+    useEffect(() => {
+        const html = document.querySelector('html')
+        html.setAttribute("data-theme", theme)
+        localStorage.setItem("theme", theme)
+    }, [theme])
+
+
+    const handleTheme = (checked) => {
+        setTheme(checked ? "dark" : "light")
+    }
+
+    const defaultLinkClass = 'font-semibold text-base text-[#2F4464] rounded-full'
 
     const activeLinkClass = 'font-bold text-base text-white bg-blue-400 gradient-underline';
 
@@ -17,10 +30,10 @@ const Navbar = () => {
         <li><NavLink to="/all-artworks" className={({ isActive }) => `${defaultLinkClass} ${isActive ? activeLinkClass : ''}`}>Explore Artworks</NavLink></li>
         <li><NavLink to="/add-artwork" className={({ isActive }) => `${defaultLinkClass} ${isActive ? activeLinkClass : ''}`}>Add Artwork</NavLink></li>
         {
-            user && ( <>
+            user && (<>
                 <li><NavLink to="/my-gallery" className={({ isActive }) => `${defaultLinkClass} ${isActive ? activeLinkClass : ''}`}>My Gallery</NavLink></li>
                 <li><NavLink to="/favorites" className={({ isActive }) => `${defaultLinkClass} ${isActive ? activeLinkClass : ''}`}>Favorites</NavLink></li>
-                </>
+            </>
             )
         }
     </>
@@ -64,15 +77,46 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        <div>
+                        <div className='flex items-center gap-5'>
+                            <label className="flex cursor-pointer gap-2">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round">
+                                    <circle cx="12" cy="12" r="5" />
+                                    <path
+                                        d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
+                                </svg>
+                                <input onChange={(e) => handleTheme(e.target.checked)}
+                                    defaultChecked={localStorage.getItem('theme') === "dark"}
+                                    type="checkbox" value="synthwave" className="toggle theme-controller" />
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg>
+                            </label>
                             {
                                 user ? (
                                     <div className="login-btn flex gap-3 lg:gap-5 items-center">
-                                            <img
-                                                className='w-8 h-8 lg:w-10 lg:h-10 rounded-full object-cover ring-2 ring-[#2F4464] ring-offset-2'
-                                                src={user.photoURL}
-                                                alt="User Profile"
-                                            />
+                                        <img
+                                            className='w-8 h-8 lg:w-10 lg:h-10 rounded-full object-cover ring-2 ring-[#2F4464] ring-offset-2'
+                                            src={user.photoURL}
+                                            alt="User Profile"
+                                        />
                                         <button onClick={handleLogOut} className="btn bg-[#2F4464] text-white px-6 lg:px-10">Log Out</button>
                                     </div>
                                 ) : (

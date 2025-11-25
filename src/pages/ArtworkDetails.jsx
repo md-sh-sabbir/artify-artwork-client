@@ -130,15 +130,10 @@ const ArtworkDetails = () => {
 
 
                         <div className="flex gap-3 mt-6">
-                            {/* <Link
-                                to={`/update-artwork/${artwork._id}`}
-                                className="btn btn-primary rounded-full bg-linear-to-r from-pink-500 to-red-600 text-white border-0 hover:from-pink-600 hover:to-red-700"
-                            >
-                                Add to Favorites
-                            </Link> */}
+                            
                             <button
                                 onClick={handleFavorite}
-                                className="btn btn-secondary rounded-full"
+                                className="btn bg-[#2F4464] text-white rounded-full"
                             >
                                 Add to Favorite
                             </button>

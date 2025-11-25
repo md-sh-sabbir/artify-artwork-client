@@ -74,7 +74,7 @@ const AddArtwork = () => {
     return (
         <div className="card border border-gray-200 bg-base-100 w-full max-w-xl mx-auto shadow-2xl rounded-2xl my-5">
             <div className="card-body p-6 relative">
-                <h2 className="text-2xl font-bold text-center mb-6">Add New Artwork</h2>
+                <h2 className="text-2xl font-bold text-center mb-6 font-[Montserrat] text-[#2F4464]">Add New Artwork</h2>
                 <form
                     onSubmit={handleSubmit}
                     className="space-y-4">
@@ -220,7 +220,7 @@ const AddArtwork = () => {
                     {/* Submit Button */}
                     <button
                         type="submit"
-                        className="btn w-full text-white mt-6 rounded-full bg-linear-to-r from-pink-500 to-red-600 hover:from-pink-600 hover:to-red-700"
+                        className="btn bg-[#2F4464] w-full text-white mt-6 rounded-full "
                     >
                         Add Artwork
                     </button>

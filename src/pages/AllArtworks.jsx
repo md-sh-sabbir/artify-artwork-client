@@ -17,6 +17,8 @@ const AllArtworks = () => {
         const search_text = e.target.search.value
         console.log(search_text);
 
+        setLoading(true)
+
         axios.get(`http://localhost:3000/search?search=${search_text}`)
             .then(data => {
                 console.log(data.data);
@@ -48,7 +50,7 @@ const AllArtworks = () => {
     return (
         <div className='my-16'>
             <Container>
-                <h2 className='font-[Montserrat] text-5xl font-bold text-center'>Explore Artworks</h2>
+                <h2 className="text-4xl font-[Montserrat] md:text-5xl font-bold text-[#2F4464] mb-4 text-center">Explore Artworks</h2>
                 <p className='font-[Jost] text-lg mt-5 text-center'>You can find our latest artworks here. Explore our arts for better visuality of artworks</p>
                 <form onSubmit={handleSearch} className='mt-5 mb-10 flex flex-col lg:flex-row justify-between items-center gap-5'>
                     <select

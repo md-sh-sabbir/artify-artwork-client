@@ -8,7 +8,7 @@ const ArtworkCard = ({ artwork }) => {
 
     return (
         <div>
-            <div className="card bg-base-100 h-[550px] shadow-sm transition hover:scale-105 duration-400">
+            <div className="card bg-base-100 h-[550px] shadow-sm transition hover:scale-105 duration-400 border border-gray-300">
                 <figure className='px-5 pb-0 mt-5'>
                     <img
                         src={artwork.image}
