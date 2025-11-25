@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CommunityHighlights = () => {
-    // Sample community posts - replace with your API data
+    
     const highlights = [
         {
             id: 1,
