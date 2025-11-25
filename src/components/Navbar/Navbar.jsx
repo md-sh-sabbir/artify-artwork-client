@@ -32,7 +32,7 @@ const Navbar = () => {
         {
             user && (<>
                 <li><NavLink to="/my-gallery" className={({ isActive }) => `${defaultLinkClass} ${isActive ? activeLinkClass : ''}`}>My Gallery</NavLink></li>
-                <li><NavLink to="/favorites" className={({ isActive }) => `${defaultLinkClass} ${isActive ? activeLinkClass : ''}`}>Favorites</NavLink></li>
+                <li><NavLink to="/favorites" className={({ isActive }) => `${defaultLinkClass} ${isActive ? activeLinkClass : ''}`}>My Favorites</NavLink></li>
             </>
             )
         }
