@@ -7,21 +7,21 @@ import ArtworkCard from '../components/ArtworkCard';
 const AllArtworks = () => {
 
     const data = useLoaderData()
-    console.log(data);
+    // console.log(data);
     const [artworks, setArtworks] = useState(data)
     const [category, setCategory] = useState("all")
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
 
     const handleSearch = e => {
         e.preventDefault()
         const search_text = e.target.search.value
-        console.log(search_text);
+        // console.log(search_text);
 
         setLoading(true)
 
-        axios.get(`http://localhost:3000/search?search=${search_text}`)
+        axios.get(`https://artify-artwork-server.vercel.app/search?search=${search_text}`)
             .then(data => {
-                console.log(data.data);
+                // console.log(data.data);
                 setArtworks(data.data)
                 setLoading(false)
             })
@@ -29,28 +29,28 @@ const AllArtworks = () => {
     }
 
     const handleCategoryChange = (e) => {
-        const newCategory = e.target.value 
+        const newCategory = e.target.value
         setCategory(newCategory)
 
         setLoading(true)
 
-        axios.get(`http://localhost:3000/filter?category=${newCategory}`)
+        axios.get(`https://artify-artwork-server.vercel.app/filter?category=${newCategory}`)
             .then(data => {
-                console.log(data.data);
+                // console.log(data.data);
                 setArtworks(data.data)
                 setLoading(false)
             })
     }
 
     if (loading) {
-        <div className='text-center mt-5'><span className="loading loading-spinner loading-xl"></span></div>
+       return <div className='text-center mt-5'><span className="loading loading-spinner loading-xl"></span></div>
     }
 
 
     return (
         <div className='my-16'>
             <Container>
-                <h2 className="text-4xl font-[Montserrat] md:text-5xl font-bold text-[#2F4464] mb-4 text-center">Explore Artworks</h2>
+                <h2 className="text-4xl font-[Montserrat] md:text-5xl font-bold mb-4 text-center">Explore Artworks</h2>
                 <p className='font-[Jost] text-lg mt-5 text-center'>You can find our latest artworks here. Explore our arts for better visuality of artworks</p>
                 <form onSubmit={handleSearch} className='mt-5 mb-10 flex flex-col lg:flex-row justify-between items-center gap-5'>
                     <select

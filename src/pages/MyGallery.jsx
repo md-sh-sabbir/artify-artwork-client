@@ -16,9 +16,9 @@ const MyGallery = () => {
     const [selectedArtwork, setSelectedArtwork] = useState(null)
 
     useEffect(() => {
-        axios.get(`http://localhost:3000/my-gallery?email=${user.email}`)
+        axios.get(`https://artify-artwork-server.vercel.app/my-gallery?email=${user.email}`)
             .then(data => {
-                console.log(data.data);
+                // console.log(data.data);
                 setArtworks(data.data)
                 setLoading(false)
             })
@@ -47,13 +47,13 @@ const MyGallery = () => {
         }
 
 
-        axios.put(`http://localhost:3000/artworks/${selectedArtwork._id}`, formData)
+        axios.put(`https://artify-artwork-server.vercel.app/artworks/${selectedArtwork._id}`, formData)
             .then(data => {
-                console.log(data.data);
+                // console.log(data.data);
                 toast.success("Successfully updated!")
                 document.getElementById('my_modal_5').close();
 
-                axios.get(`http://localhost:3000/my-gallery?email=${user.email}`)
+                axios.get(`https://artify-artwork-server.vercel.app/my-gallery?email=${user.email}`)
                     .then(data => setArtworks(data.data))
             })
             .catch(err => {
@@ -72,12 +72,12 @@ const MyGallery = () => {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:3000/artworks/${artworkId}`)
+                axios.delete(`https://artify-artwork-server.vercel.app/artworks/${artworkId}`)
                     .then(data => {
-                        console.log(data.data);
+                        // console.log(data.data);
 
-                        axios.get(`http://localhost:3000/my-gallery?email=${user.email}`)
-                        .then(data => setArtworks(data.data))
+                        axios.get(`https://artify-artwork-server.vercel.app/my-gallery?email=${user.email}`)
+                            .then(data => setArtworks(data.data))
 
                         Swal.fire({
                             title: "Deleted!",
@@ -97,7 +97,7 @@ const MyGallery = () => {
     return (
         <div className='my-16'>
             <Container>
-                <h2 className="text-4xl font-[Montserrat] md:text-5xl font-bold text-[#2F4464] mb-4 text-center">My Gallery</h2>
+                <h2 className="text-4xl font-[Montserrat] md:text-5xl font-bold mb-4 text-center">My Gallery</h2>
                 <p className='font-[Jost] text-lg mt-5 text-center'>You can find our latest artworks here. Explore our arts for better visuality of artworks</p>
 
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-10'>
@@ -145,7 +145,7 @@ const MyGallery = () => {
                 <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                     <div className="modal-box">
                         <div className="card-body p-6 relative">
-                            <h2 className="text-2xl font-bold text-center mb-6 font-[Montserrat] text-[#2F4464]">Update Artwork</h2>
+                            <h2 className="text-2xl font-bold text-center mb-6 font-[Montserrat]">Update Artwork</h2>
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 <div>
                                     <label className="label font-medium">User Name</label>

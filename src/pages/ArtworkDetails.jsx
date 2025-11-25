@@ -10,36 +10,36 @@ const ArtworkDetails = () => {
 
     const navigate = useNavigate()
     const { id } = useParams()
-    console.log(id);
+    // console.log(id);
     const [artwork, setArtwork] = useState({})
     const [artist, setArtist] = useState({})
     const [loading, setLoading] = useState(true)
     const { user } = use(AuthContext)
     const [refectch, setRefetch] = useState(false)
-    console.log(user);
+    // console.log(user);
 
     useEffect(() => {
-        axios.get(`http://localhost:3000/artworks/${id}`)
+        axios.get(`https://artify-artwork-server.vercel.app/artworks/${id}`)
             .then(data => {
                 setArtwork(data.data)
-                console.log(data.data);
+                // console.log(data.data);
                 setLoading(false)
             })
     }, [id, refectch])
 
     useEffect(() => {
-        axios.get(`http://localhost:3000/artworks/artist/${id}`)
+        axios.get(`https://artify-artwork-server.vercel.app/artworks/artist/${id}`)
             .then(data => {
-                console.log(data.data.artist);
+                // console.log(data.data.artist);
                 setArtist(data.data.artist)
                 setLoading(false)
             })
     }, [id])
 
     const handleLike = () => {
-        axios.patch(`http://localhost:3000/likes/${id}`)
+        axios.patch(`https://artify-artwork-server.vercel.app/likes/${id}`)
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 toast.success('Likes has been added')
                 setRefetch(!refectch)
             })
@@ -61,9 +61,9 @@ const ArtworkDetails = () => {
             visibility: artwork.visibility
         }
 
-        axios.post(`http://localhost:3000/favorites`, favArtwork)
+        axios.post(`https://artify-artwork-server.vercel.app/favorites`, favArtwork)
             .then(data => {
-                console.log(data.data);
+                // console.log(data.data);
                 toast.success('Successfully added to the favorites')
             })
             .catch(err => {
@@ -130,7 +130,7 @@ const ArtworkDetails = () => {
 
 
                         <div className="flex gap-3 mt-6">
-                            
+
                             <button
                                 onClick={handleFavorite}
                                 className="btn bg-[#2F4464] text-white rounded-full"

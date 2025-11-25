@@ -10,12 +10,20 @@ import PrivateRoute from "./PrivateRoute";
 import MyGallery from "../pages/MyGallery";
 import MyFavorites from "../pages/MyFavorites";
 import ErrorPage from "../pages/ErrorPage";
+import LoadingSpinner from "../components/LoadingSpinner";
+
+const navigatLoader = async () => {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    return null
+}
 
 export const router = createBrowserRouter([
     {
         path: '/',
-        Component : MainLayout,
+        Component: MainLayout,
         errorElement: <ErrorPage></ErrorPage>,
+        hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>,
+        loader: navigatLoader,
         children: [
             {
                 index: true,
@@ -32,7 +40,7 @@ export const router = createBrowserRouter([
             {
                 path: '/all-artworks',
                 Component: AllArtworks,
-                loader: () => fetch('http://localhost:3000/artworks')
+                loader: () => fetch('https://artify-artwork-server.vercel.app/artworks')
             },
             {
                 path: 'artwork-details/:id',

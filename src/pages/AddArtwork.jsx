@@ -7,7 +7,7 @@ import Swal from 'sweetalert2'
 const AddArtwork = () => {
 
     const { user } = use(AuthContext)
-    console.log(user?.photoURL);
+    // console.log(user?.photoURL);
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -27,9 +27,9 @@ const AddArtwork = () => {
             artist_name: e.target.user_name.value
         }
 
-        axios.post('http://localhost:3000/artworks', formData)
+        axios.post('https://artify-artwork-server.vercel.app/artworks', formData)
             .then(data => {
-                console.log(data.data);
+                // console.log(data.data);
                 if (data.data.insertedId) {
                     Swal.fire({
                         position: "center",
@@ -47,9 +47,9 @@ const AddArtwork = () => {
 
                     }
 
-                    axios.post('http://localhost:3000/artists', artistData)
+                    axios.post('https://artify-artwork-server.vercel.app/artists', artistData)
                         .then(data => {
-                            console.log('Artist updated', data.data);
+                            // console.log('Artist updated', data.data);
                         })
                         .catch(err => {
                             console.log('Artist udpate error:', err);
@@ -74,7 +74,7 @@ const AddArtwork = () => {
     return (
         <div className="card border border-gray-200 bg-base-100 w-full max-w-xl mx-auto shadow-2xl rounded-2xl my-5">
             <div className="card-body p-6 relative">
-                <h2 className="text-2xl font-bold text-center mb-6 font-[Montserrat] text-[#2F4464]">Add New Artwork</h2>
+                <h2 className="text-2xl font-bold text-center mb-6 font-[Montserrat]">Add New Artwork</h2>
                 <form
                     onSubmit={handleSubmit}
                     className="space-y-4">

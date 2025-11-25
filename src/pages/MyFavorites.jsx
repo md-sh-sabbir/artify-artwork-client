@@ -13,9 +13,9 @@ const MyFavorites = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        axios.get(`http://localhost:3000/favorites`)
+        axios.get(`https://artify-artwork-server.vercel.app/favorites`)
             .then(data => {
-                console.log(data.data);
+                // console.log(data.data);
                 setArtworks(data.data)
                 setLoading(false)
             })
@@ -36,11 +36,11 @@ const MyFavorites = () => {
             confirmButtonText: "Yes, Unfavorite it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:3000/favorites/${artworkId}`)
+                axios.delete(`https://artify-artwork-server.vercel.app/favorites/${artworkId}`)
                     .then(data => {
-                        console.log(data.data);
+                        // console.log(data.data);
 
-                        axios.get(`http://localhost:3000/my-gallery?email=${user.email}`)
+                        axios.get(`https://artify-artwork-server.vercel.app/my-gallery?email=${user.email}`)
                             .then(data => setArtworks(data.data))
 
                         Swal.fire({
@@ -61,7 +61,7 @@ const MyFavorites = () => {
     return (
         <div className='my-16'>
             <Container>
-                <h2 className="text-4xl font-[Montserrat] md:text-5xl font-bold text-[#2F4464] mb-4 text-center">My Favorites</h2>
+                <h2 className="text-4xl font-[Montserrat] md:text-5xl font-bold mb-4 text-center">My Favorites</h2>
                 <p className='font-[Jost] text-lg mt-5 text-center'>You can find our latest artworks here. Explore our arts for better visuality of artworks</p>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-10'>
                     {

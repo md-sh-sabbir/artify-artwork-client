@@ -8,9 +8,9 @@ const LatestArtworks = () => {
     const [artworks, setArtworks] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:3000/latest-artworks')
+        axios.get('https://artify-artwork-server.vercel.app/latest-artworks')
             .then(data => {
-                console.log(data.data);
+                // console.log(data.data);
                 setArtworks(data.data)
             })
     }, [])
