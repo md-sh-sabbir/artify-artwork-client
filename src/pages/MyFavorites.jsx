@@ -13,7 +13,7 @@ const MyFavorites = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        axios.get(`https://artify-artwork-server.vercel.app/favorites`)
+        axios.get(`https://artify-artwork-server.vercel.app/favorites?email=${user.email}`)
             .then(data => {
                 // console.log(data.data);
                 setArtworks(data.data)
@@ -40,7 +40,7 @@ const MyFavorites = () => {
                     .then(data => {
                         // console.log(data.data);
 
-                        axios.get(`https://artify-artwork-server.vercel.app/my-gallery?email=${user.email}`)
+                        axios.get(`https://artify-artwork-server.vercel.app/favorites?email=${user.email}`)
                             .then(data => setArtworks(data.data))
 
                         Swal.fire({
