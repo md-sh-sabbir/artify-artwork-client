@@ -7,7 +7,7 @@ import CommunityHighlights from '../components/CommunityHighlights';
 const HomeLayout = () => {
     return (
         <div>
-            <section>
+            <section className='mt-32'>
                 <Slider></Slider>
             </section>
             <section>

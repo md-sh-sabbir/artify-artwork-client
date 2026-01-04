@@ -11,6 +11,10 @@ import MyGallery from "../pages/MyGallery";
 import MyFavorites from "../pages/MyFavorites";
 import ErrorPage from "../pages/ErrorPage";
 import LoadingSpinner from "../components/LoadingSpinner";
+import AboutUs from "../pages/AboutUs";
+import Contact from "../pages/Contact";
+import TermsOfUse from "../pages/TermsOfUse";
+import PrivacyPolicy from "../pages/PrivacyPolicy";
 
 const navigatLoader = async () => {
     await new Promise(resolve => setTimeout(resolve, 1000));
@@ -65,7 +69,23 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <MyFavorites></MyFavorites>
                 </PrivateRoute>
-            }
+            },
+            {
+                path: 'about-us',
+                element: <AboutUs></AboutUs>
+            },
+            {
+                path: 'contact',
+                element: <Contact></Contact>
+            },
+            {
+                path: 'terms-of-use',
+                element: <TermsOfUse></TermsOfUse>
+            },
+            {
+                path: 'privacy-policy',
+                element: <PrivacyPolicy></PrivacyPolicy>
+            },
 
         ]
     }

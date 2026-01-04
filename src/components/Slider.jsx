@@ -38,7 +38,7 @@ const Slider = () => {
     const slideData = defaultSlides;
 
     return (
-        <div className="h-[calc(100vh-182px)] w-11/12 mx-auto mt-8">
+        <div className="h-[calc(100vh-182px)] w-11/12 lg:w-[87.5%] mx-auto mt-8">
             <Swiper
                 pagination={{
                     type: 'bullets',

@@ -50,7 +50,7 @@ const Navbar = () => {
     };
 
     return (
-        <div className="bg-[#DDC5A9] shadow-sm font-varela relative z-50">
+        <div className="bg-[#DDC5A9] shadow-sm font-varela fixed top-0 w-full z-50">
             <Container>
                 <div className='navbar'>
                     <div className="navbar-start">
@@ -67,7 +67,7 @@ const Navbar = () => {
                             </ul>
                         </div>
                         <Link to="/" className="font-[Jost] text-2xl lg:text-4xl font-titillium font-bold text-[#2F4464] flex items-center">
-                            <img src={logo} className='w-14 md:w-20' alt="GameHub Logo" />
+                            <img src={logo} className='w-14 md:w-20' alt="Artify Logo" />
                             <span className='hidden sm:inline-block'>ARTIFY</span>
                         </Link>
                     </div>

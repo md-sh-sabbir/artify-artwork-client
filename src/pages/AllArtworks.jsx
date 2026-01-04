@@ -48,7 +48,7 @@ const AllArtworks = () => {
 
 
     return (
-        <div className='my-16'>
+        <div className='pt-5 pb-16'>
             <Container>
                 <h2 className="text-4xl font-[Montserrat] md:text-5xl font-bold mb-4 text-center">Explore Artworks</h2>
                 <p className='font-[Jost] text-lg mt-5 text-center'>You can find our latest artworks here. Explore our arts for better visuality of artworks</p>
